@@ -1,5 +1,5 @@
 # Multi-Scale Heterogeneity-Aware Hypergraph Representation for Histopathology Whole Slide Images
-Pytorch implementation for the Heterogeneous Hypergraph Representation learning in the paperMulti-Scale Heterogeneity-Aware Hypergraph Representation for Histopathology Whole Slide Images.
+Pytorch implementation for the Heterogeneous Hypergraph Representation learning in the paper Multi-Scale Heterogeneity-Aware Hypergraph Representation for Histopathology Whole Slide Images.
 ![](pic/fig.png)
 
 ## Installation
