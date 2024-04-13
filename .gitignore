@@ -1,3 +1,4 @@
 checkpoints/*
 plots/*
 tensorboard_log/*
+get_patch_label_and_feature.py
