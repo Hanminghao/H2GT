@@ -34,7 +34,7 @@ def ordered_yaml():
 
 
 parser = argparse.ArgumentParser()
-parser.add_argument('-config', type=str, help='Path to option YMAL file.', default="configs/graph_construction_config.yml")
+parser.add_argument('--config', type=str, help='Path to option YMAL file.', default="configs/graph_construction_config.yml")
 # parser.add_argument('--pkl_path', type=str, help='The patch type and feature have been processed in advance', default='/home/dataset2/hmh_data/my_secpro_data/patch_label_features/BLCA/HoverNet_CTrans_20X/')
 parser.add_argument('--pkl_path', type=str, help='The patch type and feature have been processed in advance', default=None)
 parser.add_argument('--gpu_list', type=str, help='Which Gpus to use', default='6,7')
