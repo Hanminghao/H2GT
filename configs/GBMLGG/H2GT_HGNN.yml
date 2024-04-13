@@ -1,0 +1,65 @@
+#### general settings
+name: HoverNet_cTrans
+train_type: gnn
+desc: without_specific_proj #本次运行的说明
+
+#### datasets
+datasets:
+  dataset: "GBMLGG"
+  task: "cancer survival"
+  tvt_root: "./train_split/GBMLGG/train_split" #更改此处以更改数据集划分，是csv的fold分类文件
+  train_path: "/heterogeneous_train.csv"
+  test_path: "/heterogeneous_test.csv"
+  valid_path: "/heterogeneous_val.csv"
+  has_graph: True
+  num_workers: 16
+
+#### Checkpoint settings & Early stopping settings
+checkpoint:
+  path: "./checkpoints/GBMLGG/"
+  save_checkpoint_freq: 5
+
+eval:
+  explain_save_path: "./"
+  visualize: True
+
+Early_stop:
+  warmup: 20
+  patience: 3
+  stop: 40
+
+#### training settings: learning rate scheme, loss, optimizer
+train:
+  num_epochs: 10
+  batch_size: 1
+  loss: "nll_surv"  #optional [nll_surv, ce_surv]
+  alpha: 0.4
+
+#### Optimizer settings
+optimizer:
+  opt_method: "ADAM"
+  lr: 0.001 # Learning rate
+  weight_decay: 0.0005
+  momentum: 0.9
+  gc: 32
+#### GNN settings
+GNN:
+  name: "H2GT_HGNN"
+  out_dim: 4
+
+  HGT:
+    name: "RGCN"
+    n_node_types: 6
+    edge_types: ["pos", "neg"]
+    num_layers: 1
+    in_dim: 768
+    hidden_dim: 512
+    num_heads: 4
+    feat_drop: 0.4
+
+  Hyper:
+    name: HyperGAT  #optional [HGNN, AllSetTransformer, CEGAT, MLP, HyperGCN, HyperGAT]
+    n_layers: 1 #HGNN:2
+
+
+

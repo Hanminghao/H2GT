@@ -1,0 +1,71 @@
+#### general settings
+name: PointHet
+train_type: gnn
+desc: HEAT
+pkl_path: './checkpoints/HEAT2_BRCA_cTrans/final_result/'
+
+#### datasets
+datasets:
+  dataset: "BRCA"
+  task: "cancer survival"
+  tvt_root: "./train_split/BRCA/train_split"
+  train_path: "/heterogeneous_train.csv"
+  test_path: "/heterogeneous_test.csv"
+  valid_path: "/heterogeneous_val.csv"
+  has_graph: True
+  num_workers: 16
+
+#### Checkpoint settings & Early stopping settings
+checkpoint:
+  path: "./checkpoints/HEAT2_BRCA_cTrans/"
+  save_checkpoint_freq: 5
+
+eval:
+  explain_save_path: "./"
+  visualize: False
+
+Early_stop:
+  warmup: 20
+  patience: 3
+  stop: 40
+
+#### Patches extractor settings
+selector:
+
+  n_channel: 3
+  pixel_th: 200
+
+  level: 5
+  patch_size: 256
+  verbose: 0
+
+#### training settings: learning rate scheme, loss, optimizer
+train:
+  num_epochs: 50
+  batch_size: 1
+  loss: "nll_surv"  #optional [nll_surv, ce_surv]
+  alpha: 0.4
+
+#### Optimizer settings
+optimizer:
+  opt_method: "ADAM"
+  lr: 0.0001 # Learning rate
+  weight_decay: 0.0005
+  momentum: 0.9
+  gc: 32
+
+#### GNN settings
+GNN:
+  name: "HEAT2"
+
+  n_node_types: 6
+  num_meta_paths: 3
+  num_layers: 2
+  in_dim: 768
+  hidden_dim: 256
+  out_dim: 4
+  n_heads: 8
+  num_out_heads: 1
+  feat_drop: 0
+
+  graph_pooling_type: mean
