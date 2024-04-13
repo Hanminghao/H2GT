@@ -49,13 +49,3 @@ For different methods, we pre-set their config files in folder [configs](configs
 python main.py --config /path/to/the/config
 ```
 
-<!-- ## Citing IBMIL
-```
-@inproceedings{lin2023interventional,
-  title={Interventional bag multi-instance learning on whole-slide pathological images},
-  author={Lin, Tiancheng and Yu, Zhimiao and Hu, Hongyu and Xu, Yi and Chen, Chang-Wen},
-  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
-  pages={19830--19839},
-  year={2023}
-}
-``` -->
